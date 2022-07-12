@@ -1,6 +1,11 @@
 public class Quina implements Jogo{
     @Override
     public String gerarResultado() {
-        return "12,14,09,04,30";
+        Sorteio sorteio = new Sorteio(60);
+        String resultado = "";
+        for (int i =0 ; i< 5 ; i++ ){
+            resultado+= sorteio.sortear()+", ";
+        }
+        return resultado;
     }
 }

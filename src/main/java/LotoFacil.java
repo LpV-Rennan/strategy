@@ -1,6 +1,11 @@
 public class LotoFacil implements Jogo{
     @Override
     public String gerarResultado() {
-        return "01,02,05,07,09,10,11,12,14,15,16,18,20,22,25";
+        String resultado = "";
+        Sorteio sorteio = new Sorteio(60);
+        for (int i = 0 ; i<15;i++){
+            resultado+=sorteio.sortear()+",";
+        }
+        return resultado;
     }
 }
