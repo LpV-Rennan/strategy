@@ -14,12 +14,12 @@ class EspacoDaSorteTest {
     Quina quina;
 
     @BeforeEach
-    public void setUp(){
-        federal = Mockito.mock(Federal.class);
-        lotoFacil = Mockito.mock(LotoFacil.class);
-        megaSena = Mockito.mock(MegaSena.class);
-        milionaria = Mockito.mock(Milionaria.class);
-        quina = Mockito.mock(Quina.class);
+    public void setUp() {
+        federal = mock(Federal.class);
+        lotoFacil = mock(LotoFacil.class);
+        megaSena = mock(MegaSena.class);
+        milionaria = mock(Milionaria.class);
+        quina = mock(Quina.class);
 
         when(federal.gerarResultado()).thenReturn("1234");
         when(lotoFacil.gerarResultado()).thenReturn("01,02,05,07,09,10,11,12,14,15,16,18,20,22,25");
@@ -27,35 +27,36 @@ class EspacoDaSorteTest {
         when(milionaria.gerarResultado()).thenReturn("12,47,35,44,48,09 ; trevos 5,1");
         when(quina.gerarResultado()).thenReturn("12,14,09,04,30");
     }
+
     @Test
-    void deveRetornarResultadoDaFederal(){
-     EspacoDaSorte espacoDaSorte = new EspacoDaSorte();
-     Assertions.assertEquals("1234", espacoDaSorte.gerarResultado(federal));
+    void deveRetornarResultadoDaFederal() {
+        EspacoDaSorte espacoDaSorte = new EspacoDaSorte();
+        Assertions.assertEquals("1234", espacoDaSorte.gerarResultado(federal));
     }
 
     @Test
-    void deveRetornarResultadoDaLotoFacil(){
+    void deveRetornarResultadoDaLotoFacil() {
         EspacoDaSorte espacoDaSorte = new EspacoDaSorte();
         Assertions.assertEquals("01,02,05,07,09,10,11,12,14,15,16,18,20,22,25", espacoDaSorte.gerarResultado(lotoFacil));
     }
 
     @Test
-    void deveRetornarResultadoDaMegaSena(){
+    void deveRetornarResultadoDaMegaSena() {
         EspacoDaSorte espacoDaSorte = new EspacoDaSorte();
         Assertions.assertEquals("11,19,38,47,56,59", espacoDaSorte.gerarResultado(megaSena));
     }
 
     @Test
-    void deveRetornarResultadoDaMilionaria(){
+    void deveRetornarResultadoDaMilionaria() {
         EspacoDaSorte espacoDaSorte = new EspacoDaSorte();
         Assertions.assertEquals("12,47,35,44,48,09 ; trevos 5,1", espacoDaSorte.gerarResultado(milionaria));
     }
+
     @Test
-    void deveRetornarResultadoDaQuina(){
+    void deveRetornarResultadoDaQuina() {
         EspacoDaSorte espacoDaSorte = new EspacoDaSorte();
         Assertions.assertEquals("12,14,09,04,30", espacoDaSorte.gerarResultado(quina));
     }
-
 
 
 }
